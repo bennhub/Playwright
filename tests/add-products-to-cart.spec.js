@@ -40,6 +40,7 @@ test("Validate Adding Products to Cart", async ({ page, context }) => {
   // Verify both products are added to Cart
   await expect(page.locator(`#product-1`)).toBeVisible();
   await expect(page.locator(`#product-2`)).toBeVisible();
+  
   // Verify their prices, quantity and total price
   await expect(page.locator(`#product-1 .cart_price`)).toHaveText(`Rs. 500`);
   await expect(page.locator(`#product-1 .cart_quantity`)).toHaveText(`1`);

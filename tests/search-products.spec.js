@@ -3,7 +3,6 @@
 //--------------------------------
 
 import { test, expect } from "@playwright/test";
-
 test("Search Products", async ({ page, context }) => {
   {
     args: ["--ignore-certificate-errors", "--disable-web-security"];

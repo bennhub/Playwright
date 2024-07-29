@@ -59,11 +59,13 @@ test("Search Products", async ({ page, context }) => {
 
   //Clear the search input
   await page.locator(`#search_product`).clear();
+  
   //refresh the page
   await page.reload();
 
   //Fill  the seach input in left top side of the page(next to the search icon) with invalid word
   await page.locator(`#search_product`).fill(`XPXPXPXPXX`);
+
   //Click search icon to do the search
   await page.locator(`#submit_search`).click();
 
@@ -72,5 +74,24 @@ test("Search Products", async ({ page, context }) => {
   //------------------------------------
 
   // Assert Empty Products list Search Result
+  await expect(page.locator(".col-sm-4 p")).not.toBeVisible();
+
+  // Clear the search input
+  await page.locator(`#search_product`).clear();
+
+  // Refresh the page
+  await page.reload();
+
+  // Fill  the seach input in left top side of the page(next to the search icon) with invalid word
+  await page.locator(`#search_product`).fill(`XPXPXPXPXX`);
+
+  // Click search icon to do the search
+  await page.locator(`#submit_search`).click();
+
+  //--------------------------------
+  // Assert:
+  //--------------------------------
+
+  // There is empty in the Searched Products list
   await expect(page.locator(".col-sm-4 p")).not.toBeVisible();
 });

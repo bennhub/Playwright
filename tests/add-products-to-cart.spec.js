@@ -4,6 +4,7 @@
 import { test, expect } from "@playwright/test";
 test("Validate Adding Products to Cart", async ({ page, context }) => {
   await context.setDefaultNavigationTimeout(60000); // optional: set a longer navigation timeout
+  
   await page.goto("https://automationexercise.com", { // go to url
     waitUntil: "domcontentloaded", // ensure the DOM is fully loaded
     ignoreHTTPSErrors: true, // Ignore HTTPS errors (if needed)
